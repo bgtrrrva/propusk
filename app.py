@@ -1,26 +1,23 @@
-# app.py — начало файла (обязательно ДО всех импортов)
 import os
-import sys
-
-# ✅ Принудительно предотвращаем подгрузку GUI-версии
 os.environ["OPENCV_VIDEOIO_PRIORITY_MSMF"] = "0"
 os.environ["OPENCV_VIDEOIO_PRIORITY_FFMPEG"] = "0"
 os.environ["OPENCV_IO_ENABLE_JASPER"] = "0"
 
-# ✅ Удаляем модуль, если уже частично загружен
-if 'cv2' in sys.modules:
-    del sys.modules['cv2']
+# ✅ Критически важно: удаляем cv2, если уже загружен
+import sys
+if "cv2" in sys.modules:
+    del sys.modules["cv2"]
 
-# ✅ Теперь импортируем cv2 — будет загружена ТОЛЬКО headless-версия
+# Теперь импортируем cv2 — будет загружена ТОЛЬКО headless-версия
 import cv2
 
-# ✅ Только теперь — остальные импорты
+# Остальные импорты — после cv2
 import streamlit as st
 import easyocr
 import pandas as pd
+import numpy as np
 import re
 import io
-import numpy as np
 from ultralytics import YOLO
 from collections import Counter
 
