@@ -1,7 +1,14 @@
+--only-binary=all
+
 streamlit==1.36.0
-opencv-python-headless==4.8.1.78  # ✅ ТОЛЬКО headless, стабильная
 ultralytics==8.3.18
 easyocr==1.7.1
 pandas==2.2.3
 numpy==2.2.4
 openpyxl==3.1.5
+
+# ✅ Явно ТОЛЬКО headless
+opencv-python-headless==4.8.1.78
+
+# ✅ Явно ЗАПРЕЩАЕМ GUI-версию (работает в Streamlit Cloud с pip ≥ 23.1)
+opencv-python @ https://files.pythonhosted.org/packages/3a/5f/4f5c9c0b65f32e4f2a1d7c3b3d7a0f7f0a0a0a0a0a0a0a0a0a0a0a0a/opencv-python-0.0.0.tar.gz ; python_version >= '3.6'
