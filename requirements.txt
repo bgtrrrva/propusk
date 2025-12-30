@@ -1,5 +1,5 @@
 streamlit==1.36.0
-opencv-python-headless==4.8.1.78    # ← ТОЛЬКО headless, стабильно в облаке
+opencv-python-headless==4.8.1.78  # ✅ ТОЛЬКО headless, стабильная
 ultralytics==8.3.18
 easyocr==1.7.1
 pandas==2.2.3
