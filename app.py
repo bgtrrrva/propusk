@@ -1,9 +1,20 @@
-# app_smart_filter.py — ваш стиль, но без тускнения и синих фото
-import streamlit as st
+# app.py — начало файла
 import os
+import sys
+
+# ✅ ПРИНУДИТЕЛЬНО используем ТОЛЬКО headless-версию
 os.environ["OPENCV_VIDEOIO_PRIORITY_MSMF"] = "0"
-os.environ["OPENCV_IO_ENABLE_JASPER"] = "0"
+os.environ["OPENCV_VIDEOIO_PRIORITY_FFMPEG"] = "0"
+
+# Удаляем cv2, если уже загружен (например, из кэша)
+if 'cv2' in sys.modules:
+    del sys.modules['cv2']
+
+# Теперь импортируем cv2 — он возьмётся из opencv-python-headless
 import cv2
+
+# Остальные импорты — после cv2
+import streamlit as st
 import easyocr
 import pandas as pd
 import re
